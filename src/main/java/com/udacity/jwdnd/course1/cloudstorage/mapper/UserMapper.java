@@ -2,8 +2,10 @@ package com.udacity.jwdnd.course1.cloudstorage.mapper;
 
 import com.udacity.jwdnd.course1.cloudstorage.model.User;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 @Mapper
+@Repository
 public interface UserMapper {
 
     @Select("SELECT * FROM USERS WHERE username = #{username}")
@@ -14,6 +16,6 @@ public interface UserMapper {
     @Options(useGeneratedKeys = true, keyProperty = "userId")
     Integer insertUser(User user);
 
-    @Delete("DELETE FROM User WHERE id = #{id}")
-    void delete(Integer id);
+    @Delete("DELETE FROM Users WHERE userid = #{userId}")
+    void delete(Integer userId);
 }
